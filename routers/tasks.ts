@@ -35,7 +35,7 @@ tasksRouter.put('/:id', auth, async (req: RequestWithUser,res,next) => {
             status: req.body.status,
         });
 
-        if(task.user === req.user?._id) {
+        if(task.user.toString() !== req.user?._id.toString()) {
             return res.status(403).send({error: 'This task not yours!'});
         }
 
@@ -60,7 +60,7 @@ tasksRouter.delete('/:id', auth, async(req: RequestWithUser,res, next) => {
             return res.status(404).send({error: 'Task Not found!'});
         }
 
-        if(task.user === req.user?._id) {
+        if(task.user.toString() !== req.user?._id.toString()) {
             return res.status(403).send({error: 'This task not yours!'});
         }
 
