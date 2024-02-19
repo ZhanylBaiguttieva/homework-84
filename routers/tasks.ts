@@ -2,7 +2,7 @@ import {Router} from "express";
 import Task from "../models/Task";
 import mongoose, {Types} from "mongoose";
 import auth, {RequestWithUser} from "../middleware/auth";
-import user from "../models/User";
+
 
 const tasksRouter = Router();
 
